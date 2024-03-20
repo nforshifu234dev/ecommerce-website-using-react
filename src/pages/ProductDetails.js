@@ -3,9 +3,6 @@ import React, {useContext} from 'react';
 // import useParams
 import {useParams} from 'react-router-dom';
 
-// import link
-import { Link } from 'react-router-dom';
-
 // import cart contenxt
 import {CartContext} from '../contexts/CartContext'
 
@@ -33,7 +30,7 @@ const ProductDetails = () => {
   
   }
 
-  const { title, price , description, image } = product;
+  const { title, price , description, images } = product;
 
   document.title = `${title}`;
 
@@ -45,7 +42,7 @@ const ProductDetails = () => {
 
         {/* image */}
         <div className='flex items-center justify-center flex-1 mb-8 lg:mb-0 '>
-          <img src={image} alt={title} className='max-w-[200px] lg:max-w-md  '  />
+          <img src={images[0]} alt={title} className='max-w-[200px] h-full lg:max-w-md  '  />
         </div>
 
         {/* text */}
