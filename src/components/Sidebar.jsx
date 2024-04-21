@@ -9,7 +9,7 @@ import { FiTrash2 } from 'react-icons/fi'
 
 // import components 
 
-import CartItem from '../components/CartItem';
+import CartItem from './CartItem';
 
 // import sidebar context
 import { SidebarContext } from '../contexts/SidebarContext';

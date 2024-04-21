@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { copyrightSign } from "../assets/icons"
 import { footerLogo } from "../assets/images"
 import { footerLinks, socialMedia } from "../constants"
@@ -14,9 +15,9 @@ const Footer = () => {
           </a>
           <p className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm">
             {/* Get shoes ready for the new term at your nearest nike store. Find your perfect size in store. Get rewards */}
-            This ecommerce website is a fusion of <a href="/" target="_blank" className="text-coral-red" >FakeStore API</a>, <a href="/" target="_blank" className="text-coral-red" >Paystack API</a>, <a href="/" target="_blank" className="text-coral-red" >React JS</a>, 
-            <a href="/" target="_blank" className="text-coral-red" >____ Youtube Video</a> & <a href="/" target="_blank" className="text-coral-red" >____ Youtube Video</a>. Click 
-            <a href="/" target="_blank" className="text-coral-red" > here</a> to find out more
+            This ecommerce website is a fusion of <a href="https://fakestoreapi.com/" target="_blank" rel="noreferrer" className="text-coral-red" >FakeStore API</a>, <a href="https://react.dev/" target="_blank" rel="noreferrer" className="text-coral-red" >React JS</a>, 
+            <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" className="text-coral-red" > Tailwind CSS</a> & <a href="/" className="text-coral-red" > some more tools</a>. Click 
+            <Link to="/details" className="text-coral-red" > here</Link> to find out more
           </p>
           <div className="flex items-center gap-5 mt-8">
             {socialMedia.map((icon)=>(

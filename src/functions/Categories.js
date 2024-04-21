@@ -15,25 +15,38 @@ import { getRandomData } from "./RandomData";
 
 
 export const fetchProductsByCategory = async (category) => {
-    const requestUrl = 'http://localhost:3000/assets/FakeStoreAPI/';
-    const route = 'products.json';
+    let requestUrl = process.env.REACT_APP_BACKEND_API_URL ?? '';
+    const route = `products/category/${category}`; // Default route
     const url = `${requestUrl}${route}`;
-  
+
     try {
-      const response = await fetch(url);
-      const jsonData = await response.json();
-  
-      // Filter products by category
-      const filteredProducts = jsonData.filter(product => product.category === category);
-  
-      if (filteredProducts.length === 0) {
-        return "Error: Category does not exist";
-      } else {
-        // Get random data from the filtered products
-        const randomData = getRandomData(9, filteredProducts);
-        return randomData;
-      }
-    } catch (error) {
-      return "Error: Failed to fetch data";
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        return jsonData;
     }
-  }
+    catch (error) {
+        console.error(error);
+        return "Error: Failed to fetch data";
+    }
+
+}
+export const fetchAllCategories = async () => {
+
+    let request_url = process.env.REACT_APP_BACKEND_API_URL ?? '';
+
+    let route = 'products/categories';
+
+    request_url = `${request_url}${route}`;
+
+    try {
+        const response = await fetch(request_url);
+        const jsonData = await response.json();
+        return jsonData;
+    }
+    catch (error) {
+        console.error(error);
+        return "Error: Failed to fetch data";
+    }
+
+
+}

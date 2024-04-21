@@ -2,10 +2,10 @@ export const fetchProducts = async ( limit = 10, offset = 0 ) => {
 
     let request_url = process.env.REACT_APP_BACKEND_API_URL ?? '';
 
-    request_url = 'http://localhost:3000/assets/FakeStoreAPI/';
+    // request_url = 'http://localhost:3000/assets/FakeStoreAPI/';
 
     // let route = `products?limit=${limit}`;
-    let route = `products.json`;
+    let route = `products`;
 
     request_url = `${request_url}${route}`;
 
@@ -39,6 +39,8 @@ export const fetchProducts = async ( limit = 10, offset = 0 ) => {
 
 
 }
+
+
 
 export const fetchSingleProduct = async (id) => {
     let requestUrl = process.env.REACT_APP_BACKEND_API_URL ?? '';
