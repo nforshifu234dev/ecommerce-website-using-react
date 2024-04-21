@@ -30,11 +30,11 @@ const ProductDetails = () => {
   
   }
 
-  const { title, price , description, images } = product;
+  const { title, price , description, image, category } = product;
 
   document.title = `${title}`;
 
-  return <section className='pt-32 pb-12 lg:py-32 h-screen'>
+  return <section className='pt-32 pb-12 lg:py-32 min-h-screen'>
     <div className='container mx-auto'>
 
       {/* image & text wrapper */}
@@ -42,13 +42,14 @@ const ProductDetails = () => {
 
         {/* image */}
         <div className='flex items-center justify-center flex-1 mb-8 lg:mb-0 '>
-          <img src={images[0]} alt={title} className='max-w-[200px] h-full lg:max-w-md  '  />
+          <img src={image} alt={title} className='max-w-[200px] h-full lg:max-w-md  '  />
         </div>
 
         {/* text */}
         <div className='flex-1 text-center lg:text-left'>
           <h1 className='text-[26px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0'>{title}</h1>
-          <div className='text-xl text-red-500 font-medium mb-6'>₦ {price}</div>
+          <div className='text-xl text-gray-500 font-medium mb-6 capitalize'>{category}</div>
+          <div className='text-2xl text-red-500  mb-6 font-bold'>₦ {price}</div>
           <p className='mb-8'>{description}</p>
           <button onClick={ ()=> addToCart(product, product.id) }  className='bg-primary py-4 px-8 text-white'>
             Add to cart

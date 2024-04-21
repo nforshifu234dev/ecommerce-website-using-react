@@ -6,7 +6,7 @@ import { CartContext } from '../contexts/CartContext';
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext);
   // destructure product
-  const { id, images, category, title, price } = product;
+  const { id, image, category, title, price } = product;
 
   console.log(title);
 
@@ -16,7 +16,7 @@ const Product = ({ product }) => {
       <div className="w-full h-[300px] flex justify-center items-center">
         {/* image */}
         <div className="w-[200px] mx-auto flex justify-center items-center">
-          <img className="max-h-[160px] group-hover:scale-110 transition duration-300" src={images[0] ?? 'http://images.nforshifu.com/public/uploads/imgs/placeholder-images-image_large.png'} alt="" />
+          <img className="max-h-[160px] group-hover:scale-110 transition duration-300" src={image ?? 'http://images.nforshifu.com/public/uploads/imgs/placeholder-images-image_large.png'} alt="" />
         </div>
       </div>
 

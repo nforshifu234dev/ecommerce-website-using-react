@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes
 
@@ -11,7 +11,19 @@ import Footer from './components/Footer';
 import PageNotFound from './pages/PageNotFound'
 
 const App = () => {
-  return <div className='overflow-hidden'>
+
+  const [stateValue, setStateValue] = useState('');
+  const parentRef = useRef(null);
+
+  useEffect(() => {
+
+    if (parentRef.current) {
+      parentRef.current.scrollTop = 0;
+    }
+
+  }, [stateValue]);
+
+  return <div ref={parentRef} className='overflow-hidden'>
 
     <Router>
       <Header />

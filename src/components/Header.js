@@ -3,6 +3,7 @@ import { SidebarContext } from '../contexts/SidebarContext';
 import { CartContext } from '../contexts/CartContext';
 import { BsBag, BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { headerLogo } from "../assets/images";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -28,16 +29,14 @@ const Header = () => {
     <header
       className={`${
         isActive ? 'bg-white py-4 shadow-md text-black' : 'bg-none py-6'
-      } ${isRouteHome ? 'text-white' : 'text-black'} fixed w-full z-10 transition-all`}
+      // } ${isRouteHome ? 'text-white' : 'text-black'} fixed w-full z-50 transition-all`}
+    } text-coral-red fixed w-full z-40 transition-all`}
     >
       <div className='container mx-auto flex items-center justify-between h-full'>
         <Link to={'/'}>
           <div>
-            <img
-              className='w-[50px] rounded-md'
-              src='http://images.nforshifu.com/public/uploads/imgs/simple-and-unique-clothesline-and-towel-folds-in-3d-image-graphic-icon-logo-design-abstract-concept-stock-can-be-used-as-symbol-related-to-bathroom-or-hotel-vector.png'
-              alt='Logo'
-            />
+            <img src={headerLogo} alt="Logo" width={130} height={29} />
+
           </div>
         </Link>
 
@@ -50,7 +49,7 @@ const Header = () => {
           {/* cart */}
           <div onClick={() => setIsOpen(!isOpen)} className='cursor-pointer flex relative'>
             <BsBag className='text-2xl' />
-            <div className='bg-red-500 absolute -right-2 -bottom-2 font-[12px] h-[18px] text-white rounded-full flex items-center justify-center px-1 text-sm'>
+            <div className='bg-primary absolute -right-2 -bottom-2 font-[12px] h-[18px] text-white rounded-full flex items-center justify-center px-1 text-sm'>
               {itemAmount}
             </div>
           </div>

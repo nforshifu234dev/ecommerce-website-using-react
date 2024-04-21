@@ -1,4 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react';
+import { fetchProducts } from '../functions/Products';
 
 // create contex
 export const ProductContext = createContext();
@@ -10,17 +11,18 @@ const ProductProvider = ({children}) => {
   // fetch products
   useEffect( ()=>{
 
-    const fetchProducts = async () => {
+    const fetchProductsFromBackend = async () => {
       
-      const response = await fetch('/products.json');
+      // const response = await fetch('/products.json');
+      const response = await fetchProducts();
 
-      const data = await response.json();
+      // const data = await response.json();
 
-      setProducts(data);
+      setProducts(response);
 
     };
 
-    fetchProducts();
+    fetchProductsFromBackend();
 
 
   }, [] )
